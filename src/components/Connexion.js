@@ -5,7 +5,9 @@ class Connexion extends React.Component {
     goToChat = event => {
         event.preventDefault();
         // Récupérer le pseudo
-        console.log(this.pseudoInput.value);
+        const pseudo = this.pseudoInput.value;
+        // Changer URL
+        this.context.router.transitionTo(`/pseudo/${pseudo}`);
     };
 
     render() {
@@ -23,6 +25,11 @@ class Connexion extends React.Component {
             </div>
         )
     }
+
+    static contextTypes = {
+        router: React.PropTypes.object
+    }
+
 }
 
 export default Connexion
