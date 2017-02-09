@@ -2,6 +2,9 @@ import React from 'react';
 import Formulaire from './Formulaire'
 import Message from './Message'
 import base from '../base'
+// CSS
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import '../animation.css';
 
 class App extends React.Component {
 
@@ -37,7 +40,15 @@ class App extends React.Component {
             <div className="box">
                 <div>
                     <div className="messages">
-                        {messages}
+                        <ReactCSSTransitionGroup
+                            component="div"
+                            className="message"
+                            transitionName="message"
+                            transitionEnterTimeout={200}
+                            transitionLeaveTimeout={200}
+                        >
+                            {messages}
+                        </ReactCSSTransitionGroup>
                     </div>
                     <Formulaire
                         addMessage={this.addMessage}
