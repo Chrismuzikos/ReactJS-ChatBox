@@ -22,6 +22,8 @@ class App extends React.Component {
         // Add timeStamp key
         const timestamp = Date.now();
         messages[`message-${timestamp}`] = message;
+        // Suppression messages
+        Object.keys(messages).slice(0, -10).map(key => messages[key] = null);
         // Mettre à jour le state
         this.setState({ messages });
     };
