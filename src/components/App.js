@@ -19,6 +19,11 @@ class App extends React.Component {
         });
     }
 
+    componentDidUpdate() {
+        // Mettre le scroll en bas
+        this.messages.scrollTop = this.messages.scrollHeight;
+    }
+
     addMessage = message => {
         // Copier le state
         const messages = {...this.state.messages};
@@ -39,7 +44,7 @@ class App extends React.Component {
         return (
             <div className="box">
                 <div>
-                    <div className="messages">
+                    <div className="messages" ref={input => this.messages = input}>
                         <ReactCSSTransitionGroup
                             component="div"
                             className="message"
