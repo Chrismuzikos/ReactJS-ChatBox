@@ -36,10 +36,15 @@ class App extends React.Component {
         this.setState({ messages });
     };
 
+    isUser = (pseudo) => {
+        return pseudo === this.props.params.pseudo;
+    }
+
     render() {
         const messages = Object
         .keys(this.state.messages)
-        .map(key => <Message key={key} details={this.state.messages[key]} />)
+        .map(key => <Message key={key} details={this.state.messages[key]}
+            isUser={this.isUser} />)
 
         return (
             <div className="box">
