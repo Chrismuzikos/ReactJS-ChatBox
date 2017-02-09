@@ -12,7 +12,7 @@ class Formulaire extends React.Component {
             message:this.message.value,
             pseudo: this.props.pseudo
         };
-        this.props.adMessage(message);
+        this.props.addMessage(message);
         //reset
         this.messageForm.reset();
         const length = this.props.length;
